@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+
+        #container .active {
+            background: yellow;
+        }
+
+        #container div {
+            width: 200px;
+            height: 200px;
+            background: #ccc;
+            border: 1px solid red;
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById("container");
+
+            var aCh = oDiv.getElementsByTagName('input');
+
+            var aDiv = oDiv.getElementsByTagName('div');
+           
+            for (var i = 0; i < aCh.length; i++) {
+                aCh[i].index = i;
+                aCh[i].onclick = function () {
+                    for(var i=0;i<aCh.length;i++){
+                        aCh[i].className = "";
+                        aDiv[i].style.display = "none";
+                    }
+
+                    this.className = 'active';
+                    aDiv[this.index].style.display = "block";
+                    console.log(this.className)
+                    console.log(this.index)
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <input class="active" type="button" value="北京" index="0">
+        <input type="button" value="上海" index="1">
+        <input type="button" value="广州" index="2">
+        <input type="button" value="深圳" index="3">
+        <div style="display: block">北京</div>
+        <div>上海</div>
+        <div>广州</div>
+        <div>深圳</div>
+        <p>我来自河南省商丘市虞城县闻集乡张阁村</p>
+    </div>
+</body>
+
+</html>

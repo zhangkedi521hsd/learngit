@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            /* background: black; */
+            /* color: white; */
+            font-size: 50px;
+            text-align: center;
+            line-height: 200%;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+        }
+      
+    </style>
+    <script>
+        function toDou(n) {
+            if (n < 10) {
+                return "0" + n;
+            } else {
+                return "" + n;
+            }
+        }
+        window.onload = function () {
+            var aImg = document.getElementsByTagName('img');
+
+            var aDiv = document.getElementsByTagName('div');
+
+            function tick() {
+                var oDate = new Date();
+                var str = toDou(oDate.getHours()) + toDou(oDate.getMinutes()) + toDou(oDate.getSeconds());
+                // alert(str)
+                for (var i = 0; i < aImg.length; i++) {
+                    aImg[i].src = "./img/" + str.charAt(i) + ".jpg";
+                }
+                for (var i = 0; i < aDiv.length; i++) {
+                    aDiv[i].innerHTML = str.charAt(i);
+                }
+            }
+            setInterval(tick, 1000)
+            tick();
+
+        }
+    </script>
+</head>
+
+<body>
+    <img src="./img/0.jpg" />
+    <img src="./img/0.jpg" />
+    :
+    <img src="./img/0.jpg" />
+    <img src="./img/0.jpg" />
+    :
+    <img src="./img/0.jpg" />
+    <img src="./img/0.jpg" />
+
+    <div></div>
+    <div></div>
+    :
+    <div></div>
+    <div></div>
+    :
+    <div></div>
+    <div></div>
+</body>
+
+</html>

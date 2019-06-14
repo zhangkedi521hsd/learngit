@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            var oTab = document.getElementById('tab1');
+            var oName = document.getElementById('name1');
+            var oBth = document.getElementById('btn1');
+
+            oBth.onclick = function(){
+                
+                for(var i=0;i<oTab.tBodies[0].rows.length;i++){
+                    var sTab = oTab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+                    var sTxt = oName.value.toLowerCase();
+                    var arr = sTxt.split(' ');
+                    oTab.tBodies[0].rows[i].style.background = "";
+
+                    for(var j=0;j<arr.length;j++){
+                        if(sTab.search(arr[j]) != -1){
+                            oTab.tBodies[0].rows[i].style.background = "yellow";
+                        }
+                    }
+
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    姓名 ： <input id="name1" type="text">
+    <input type="button" id="btn1" value="搜索">
+    <table id="tab1" border="1" width="500">
+        <thead>
+            <td>ID</td>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>删除</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>张科迪</td>
+                <td>22</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>霍韶頔</td>
+                <td>22</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>zkd</td>
+                <td>22</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>hsd</td>
+                <td>22</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>zkdzkd</td>
+                <td>22</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>hsdhsd</td>
+                <td>22</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

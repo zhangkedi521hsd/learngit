@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding:0;
+            border: 0; 
+        }
+        html,body{
+            overflow: hidden;
+            height: 100%;
+        }
+        .wrap{
+            width: 100%;
+            height: 100%;
+        }
+        .wrap img{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .nav{
+            position: absolute;
+            top: 0;
+
+            bottom: 0;
+            
+            left: 0;
+            
+            right: 0;
+            width: 100%;
+            height: 100px;
+            text-align: center;
+            z-index: 2;
+        }
+        .nav a{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin-right: 50px;
+            border: 3px solid #fff;
+            border-radius: 50%;
+        }
+        .one{
+            background: url("http://img1.imgtn.bdimg.com/it/u=2170270664,1827620957&fm=26&gp=0.jpg") center/cover;
+        }
+        .two{
+            background: url("http://img1.imgtn.bdimg.com/it/u=557506742,3050314037&fm=26&gp=0.jpg") center/cover;
+        }
+        .three{
+            background: url("http://img0.imgtn.bdimg.com/it/u=2653169419,3466607055&fm=26&gp=0.jpg") center/cover;
+        }
+        .four{
+            background: url("http://img3.imgtn.bdimg.com/it/u=2249893559,2209040798&fm=26&gp=0.jpg") center/cover;
+        }
+        .slide-right:target{
+            z-index: 1;
+            animation: slideRight 1s;
+        }
+        @keyframes slideRight{
+            from{
+                transform: translateX(-30%)
+            }
+            to{
+                transform: translateX(0);
+            }
+        }
+        .slide-left:target{
+            z-index: 1;
+            animation: slideLeft 1s;
+        }
+        @keyframes slideLeft{
+            from{
+                transform: translateX(30%)
+            }
+            to{
+                transform: translateX(0);
+            }
+        }
+        .rote:target{
+            z-index: 1;
+            animation: rote 1s;
+        }
+        @keyframes rote{
+            from{
+                transform: rotate(0deg) scale(0);
+            }
+            to{
+                transform: rotate(360deg) scale(1);
+            }
+        }
+        .fade:target{
+            z-index: 1;
+            animation: rote 1s;
+        }
+        @keyframes rote{
+            from{
+                transform: scale(2);
+            }
+            to{
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <img class="slide-right" id="slide-right" src="http://img2.imgtn.bdimg.com/it/u=1839132901,2527218965&fm=26&gp=0.jpg" alt="">
+        <img class="slide-left" id="slide-left" src="http://img3.imgtn.bdimg.com/it/u=3248542655,3512842046&fm=26&gp=0.jpg" alt="">
+        <img class="rote" id="rote" src="http://img5.imgtn.bdimg.com/it/u=148061060,451167915&fm=26&gp=0.jpg" alt="">
+        <img class="fade" id="fade" src="http://img5.imgtn.bdimg.com/it/u=3216592235,2598771040&fm=26&gp=0.jpg" alt="">
+        <div class="nav">
+            <a class="one" href="#slide-right"></a>
+            <a class="two" href="#slide-left"></a>
+            <a class="three" href="#rote"></a>
+            <a class="four" href="#fade"></a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,html{
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+        /* ul{
+            padding: 0;
+            margin: 0;
+        } */
+       li{
+           list-style: none
+       }
+       #container ul ul{
+           display: none;
+       }
+    </style>
+    <script src="./js/jquery-1.8.2.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('span').click(function(){
+                // console.log("我点击了")
+                $(this).parent().siblings().children('ul').hide();
+                
+                if($(this).next().css("display") == "none"){
+                    $(this).next().show();
+                }else{
+                    $(this).next().hide();
+                }
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <ul>
+            <li>
+                <span>一级菜单</span>
+                <ul>
+                    <li>
+                        <span>二级菜单</span>
+                        <ul>
+                            <li>
+                                <span>三级菜单</span>
+                                <ul>
+                                    <li>三级菜单</li>
+                                    <li>三级菜单</li>
+                                    <li>三级菜单</li>
+                                    <li>三级菜单</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span>一级菜单</span>
+                <ul>
+                    <li>
+                        <span>二级菜单</span>
+                        <ul>
+                            <li>
+                                <span>三级菜单</span>
+                                <ul>
+                                    <li>三级菜单</li>
+                                    <li>三级菜单</li>
+                                    <li>三级菜单</li>
+                                    <li>三级菜单</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span>一级菜单</span>
+                <ul>
+                    <li>
+                        <span>二级菜单</span>
+                        <ul>
+                            <li>
+                                <span>三级菜单</span>
+                                <ul>
+                                    <li>三级菜单</li>
+                                    <li>三级菜单</li>
+                                    <li>三级菜单</li>
+                                    <li>三级菜单</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <span>一级菜单</span>
+                <ul>
+                    <li>
+                        <span>二级菜单</span>
+                        <ul>
+                            <li>
+                                <span>三级菜单</span>
+                                <ul>
+                                    <li>三级菜单</li>
+                                    <li>三级菜单</li>
+                                    <li>三级菜单</li>
+                                    <li>三级菜单</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

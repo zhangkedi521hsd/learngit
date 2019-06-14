@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var n = parseInt(window.prompt('input'))
+
+        // 1 1 2 3 5 8
+
+        var first = 1;
+        var secoud = 1;
+        var t;
+
+        if (n > 2) {
+            for (var i = 0; i < n - 2; i++) {
+                t = first + secoud;
+                first = secoud;
+                secoud = t;
+            }
+
+            document.write(t);
+        } else {
+            document.write(1);
+        }
+    </script>
+</body>
+
+</html>

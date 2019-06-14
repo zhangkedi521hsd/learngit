@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app1">
+			<grreeting></grreeting>
+		</div>
+		<div id="app2">
+			<grreeting></grreeting>
+		</div>
+		
+		<script>
+			Vue.component("grreeting",{
+				template:`,
+					<p>
+						{{ name }}我的喷孤僻
+					</p>
+					<button v-on:click="changeName">改名</button>
+					`,
+				data:function(){
+					return {
+						name:"zkd"
+					}
+				},
+				methods:{
+					changeName:function(){
+						this.name = "只看到"
+					}
+				}
+			})
+			
+			var one = new Vue({
+				el:"#app1"				
+			})
+			var two = new Vue({
+				el:"#app2"				
+			})
+		</script>
+	</body>
+</html>

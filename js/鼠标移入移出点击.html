@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var oBtn = document.getElementById("btn");
+
+            var oDiv = document.getElementById('div1');
+            var abc = document.getElementsByClassName('abc');
+            oBtn.addEventListener('mouseover',Mouseover);
+            oBtn.addEventListener('mouseout',Mouserout);
+            oBtn.addEventListener('click',onClick);
+
+            function Mouseover(){
+                oDiv.innerHTML += "我鼠标进去了<br />";
+            }
+            function Mouserout(){
+                oDiv.innerHTML += "我鼠标出去了<br />";
+            }
+
+            function onClick(){
+                oDiv.innerHTML += "我鼠标点击了<br />" ;
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="测试">
+    <div id="div1">
+
+    </div>
+    <div class="abc"></div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link id="txt1" rel="stylesheet" href="./css/css1.css">
+    <title>Document</title>
+    <script>
+        function slink() 
+        {
+            var oL = document.getElementById("txt1");
+
+            oL.href = "./css/css1.css" 
+        }
+        function slinks() 
+        {
+            var oL = document.getElementById("txt1");
+
+            oL.href = "./css/css2.css" 
+        }
+    </script>
+</head>
+<body>
+    <input type="text" onclick="slink()" value="换肤1">
+    <input type="text" onclick="slinks()" value="换肤2">
+
+</body>
+</html>

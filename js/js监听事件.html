@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #btn {
+            width: 100px;
+            height: 100px;
+        }
+
+        div {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background: aqua;
+            margin-left: 2px;
+            font-size: 50px;
+            margin-left: 10px;
+        }
+    </style>
+    <script>
+        function toDou(n) {
+            if (n < 10) {
+                return "0" + n;
+            } else {
+                return "" + n;
+            }
+        }
+        window.onload = function () {
+            var oBtn = document.getElementById('btn');
+            var oDiv = document.getElementsByTagName('div')
+            oBtn.addEventListener("click", function () {
+                var oDate = new Date();
+
+                var str = toDou(oDate.getHours()) + toDou(oDate.getMinutes()) + toDou(oDate.getSeconds());
+
+                console.log(str)
+                for(var i=0;i<oDate.length;i++){
+                    oDiv.innerHTML = str.charAt(i);
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" id="btn" value="监听事件">
+    <div></div>
+    <div></div>
+    <br>
+    <div></div>
+    <div></div>
+    <br>
+    <div></div>
+    <div></div>
+</body>
+
+</html>

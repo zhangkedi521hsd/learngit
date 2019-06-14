@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 400px;
+            background: red;
+            display: none;
+        }
+    </style>
+    <script>
+        function showHidden() 
+        {
+            var oDiv = document.getElementById("div1");
+            var timer = null;
+            if(oDiv.style.display == "block")
+            {
+                setInterval(function(){
+                    timer = oDiv.style.display = "none";
+                },1000)
+            }
+            else{
+                clearInterval(timer);
+                oDiv.style.display = "block";
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <input id="txt1" type="button" onclick="showHidden()" value="显示隐藏">
+    <div id="div1">
+
+    </div>
+</body>
+</html>

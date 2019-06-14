@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#div2 {
+				/* 第一种就是给父级元素设置宽高
+				
+				width: 450px;
+				height: 300px; 
+				*/
+				background: medium purple;
+				overflow: hidden;
+			}
+
+			#div1 {
+				background: medium purple;
+				overflow: hidden
+			}
+			#div1:after{
+				content: "123456789987654321";
+				display: block;
+				clear: both;
+			}
+			#left {
+				float: left;
+				width: 200px;
+				height: 100px;
+				background: red;
+
+			}
+
+			#right {
+				float: left;
+				width: 250px;
+				height: 150px;
+				background: blue;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="left"></div>
+			<div id="right"></div>
+			<!-- 第二种   给兄弟添加clear：both
+			 <div style="clear: both;"></div> 
+			 -->
+			<div>
+				<h1>我是张科迪zkdzkd我是张科迪zkdzkd我是张科迪zkdzkd我是张科迪zkdzkd我是张科迪zkdzkd</h1>
+			</div>
+		</div>
+	</body>
+</html>

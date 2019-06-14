@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/index.css" />
+		<script src="js/ajax.js"></script>
+		<script src="js/vue.min.js"></script>
+		<script src="js/vant.min.js"></script>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+
+	<body>
+		<div id="app">
+			<!--头部-->
+			<van-nav-bar title="权限管理" left-text="返回" left-arrow right-text="按钮">
+
+			</van-nav-bar>
+			<!--轮播-->
+			<van-swipe :autoplay="3000">
+				<van-swipe-item>
+					<img src="img/1.jpg" style="width: 100%;" alt="" />
+				</van-swipe-item>
+				<van-swipe-item>
+					<img src="img/2.jpg" style="width: 100%;" alt="" />
+				</van-swipe-item>
+				<van-swipe-item>
+					<img src="img/3.jpg" style="width: 100%;" alt="" />
+				</van-swipe-item>
+			</van-swipe>
+			<h3>无限下拉列表</h3>
+			<van-list style="margin-bottom: 50px;" v-model="loading" :finished="finished" @load="loadData">
+				<van-swipe-cell v-for="item in list" :right-width="65" :on-close="onClose">
+					<van-cell-group>
+						<van-cell :title="item.Name" :value="item.RowNum"></van-cell>
+					</van-cell-group>
+					<span slot="right"><van-button @click="delId(item)" type="danger">删除</van-button></span>
+				</van-swipe-cell>
+			</van-list>
+			<!--脚部-->
+			<van-tabbar v-model="active">
+				<van-tabbar-item icon="home-o">
+					首页
+				</van-tabbar-item>
+				<van-tabbar-item icon="location">
+					权限管理
+				</van-tabbar-item>
+				<van-tabbar-item icon="user-o">
+					个人中心
+				</van-tabbar-item>
+			</van-tabbar>
+		</div>
+		<script>
+			var vm = new Vue({
+				el: "#app",
+				data: {
+					active: 0,
+					loading: false,
+					finished: false,
+					list: [],
+					page: 1,
+					id:""
+				},
+				methods: {
+					//获取数据
+					loadData: function() {
+						var _this = this;
+						ajax({
+							url: "http://stuapi.ysd3g.com/api/GetRoles", //请求地址
+							dataType: "jsonp", //响应的格式，jsonp可以有效的解决跨域问题
+							data: { //需要携带的参数
+								token: "8af6be20-61bf-4df7-8334-3818d760652e",
+								rows: 10,
+								page: _this.page
+							},
+							success: function(res) { //服务器返回的结果
+								if(res.rows.length == 0) {
+									_this.loading = false;
+									_this.finished = true;
+									_this.$toast("服务器已经没有数据");
+									return;
+								}
+								for(var i = 0; i < res.rows.length; i++) {
+									_this.list.push(res.rows[i])
+								}
+								_this.loading = false;
+								_this.page++;
+								_this.$toast("此次加载" + res.rows.length + "条数据")
+							}
+						})
+					},
+					onClose: function(clickPosition, instance) {
+						var _this = this;
+						switch(clickPosition) {
+							case 'left':
+							case 'cell':
+							case 'outside':
+								instance.close();
+								break;
+							case 'right':
+								this.$dialog.confirm({
+									message: '确定删除吗？'
+								}).then(() => {
+									_this.del();
+									instance.close();
+								});
+								break;
+						}
+					},
+					delId:function(item){
+						this.id = item.Id
+					},
+					del: function() {
+						var _this = this;
+						ajax({
+							url: "http://stuapi.ysd3g.com/api/DeleteRole", //请求地址
+							dataType: "jsonp", //响应的格式，jsonp可以有效的解决跨域问题
+							data: { //需要携带的参数
+								token: "8af6be20-61bf-4df7-8334-3818d760652e",
+								roleId:_this.id
+							},
+							success: function(res) { //服务器返回的结果
+								if(res.success){
+									_this.$toast("删除成功！")
+									setTimeout(() => {
+										location.reload()
+									}, 500)
+								}
+							}
+						})
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>
